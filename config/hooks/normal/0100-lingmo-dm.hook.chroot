@@ -4,4 +4,6 @@ set -e
 
 # The package leaves the display manager disabled, for systems it is added to;
 # the live system and the systems installed from it start with it.
-systemctl enable lingmo-dm.service
+if [ ! -L /etc/systemd/system/display-manager.service ]; then
+    systemctl enable lingmo-dm.service
+fi

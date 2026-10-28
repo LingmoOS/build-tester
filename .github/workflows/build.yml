@@ -97,7 +97,7 @@ jobs:
           cp -r config/ build/
           cp build.sh build/
           chmod +x build/build.sh
-          chmod +x tools/build_version_2.sht
+          chmod +x tools/build_version_2.sh
 
       - name: Build ISO
         working-directory: build

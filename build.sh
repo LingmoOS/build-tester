@@ -16,8 +16,6 @@ lb config \
     --architecture amd64 \
     --binary-image iso-hybrid \
     --archive-areas "main contrib non-free-firmware" \
-    --debootstrap-options "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg" \
-	--keyring-packages "debian-archive-keyring" \
     --apt-recommends false \
     --initramfs live-boot \
     --bootloaders "grub-efi grub-pc" \
@@ -25,16 +23,11 @@ lb config \
     --debootstrap-options "--include=ca-certificates" \
     --bootappend-live "boot=live components username=lingmo hostname=lingmo" \
     --bootappend-install "net.ifnames=0" \
-    --mirror-bootstrap "https://mirrors.ustc.edu.cn/debian/" \
-	--mirror-binary "https://mirrors.ustc.edu.cn/debian/" \
 	--iso-application "Lingmo OS" \
 	--iso-publisher "Lingmo OS Community" \
 	--iso-volume "Lingmo OS 5.x" \
 	--linux-packages "linux-image linux-headers" \
-	--memtest memtest86+ \
-    --security true \
-	--mirror-chroot-security "https://mirrors.ustc.edu.cn/debian-security" \
-	--mirror-binary-security "https://mirrors.ustc.edu.cn/debian-security"
+	--memtest memtest86+ 
 
 lb build
 

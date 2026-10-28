@@ -1,0 +1,44 @@
+# Desktop
+lingmo-shell-meta
+
+# Base
+bash-completion
+nano
+
+# Network
+iw
+wireless-regdb
+wpasupplicant
+
+# Audio
+pipewire-audio
+
+# Authorization
+pkexec
+
+# Input method
+fcitx5
+fcitx5-frontend-all
+fcitx5-config-qt
+im-config
+
+# Fonts
+fonts-noto-core
+fonts-noto-cjk
+fonts-noto-mono
+fonts-noto-color-emoji
+
+# Utility
+chromium
+fastfetch
+
+# Installer, with the boot loader programs it puts on the disk
+lingmo-installer-config
+lingmo-installer
+lingmo-oobe
+lingmo-plymouth
+efibootmgr
+grub-efi-amd64-bin
+grub-efi-amd64-signed
+grub-pc-bin
+shim-signed

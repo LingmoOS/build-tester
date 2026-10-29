@@ -10,6 +10,7 @@ binary/
 *.zsync
 .DS_Store
 live-image-*
+.workbuddy-ai/
 # Written by lb config.
 config/binary
 config/bootstrap

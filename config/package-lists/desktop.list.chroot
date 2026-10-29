@@ -1,3 +1,17 @@
+# Live session
+#
+# live-config is pulled in by live-build itself, but the packages its
+# components need are only Recommends, and build.sh runs apt with
+# --apt-recommends false. Missing them fails silently: 0030-user-setup
+# exits early when user-setup is absent, so the live system boots with no
+# account at all and lingmo-dm has nobody to log in.
+live-tools
+user-setup
+sudo
+locales
+keyboard-configuration
+console-setup
+
 # Desktop
 lingmo-shell-meta
 

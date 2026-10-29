@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+# build.sh runs apt with --apt-recommends false, so every package that
+# live-config only Recommends has to be listed explicitly in the package
+# lists. When one of them is missing the failure is silent: the component
+# checks pkg_is_installed() and exits 0, the live system boots with no
+# account, and the display manager shows an empty user list.
+#
+# Failing the build here is the only way that mistake gets noticed.
+
+missing=""
+
+for _PKG in live-config live-config-systemd user-setup sudo
+do
+    if ! dpkg-query -f='${db:Status-Status}\n' -W "${_PKG}" 2>/dev/null \
+        | grep -q '^installed$'
+    then
+        missing="${missing} ${_PKG}"
+    fi
+done
+
+if [ -n "${missing}" ]
+then
+    echo "ERROR: live session packages are missing:${missing}" >&2
+    echo "They are Recommends of live-config, dropped by --apt-recommends false." >&2
+    echo "Add them to config/package-lists/desktop.list.chroot." >&2
+    exit 1
+fi

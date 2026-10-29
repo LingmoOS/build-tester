@@ -35,7 +35,6 @@ fastfetch
 # Installer, with the boot loader programs it puts on the disk
 lingmo-installer-config
 lingmo-installer
-lingmo-oobe
 lingmo-plymouth
 efibootmgr
 grub-efi-amd64-bin
